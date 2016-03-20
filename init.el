@@ -1,6 +1,5 @@
 ;;;;; PACKAGES
 (require 'package)
-(package-initialize)
 
 ;; Repositories
 (setq package-archives
@@ -8,9 +7,44 @@
 	("marmalade" . "http://marmalade-repo.org/packages/")
 	("melpa" . "http://melpa.milkbox.net/packages/")))
 
-;;; Installed packages
-; Themes
-(package-install 'color-theme-sanityinc-tomorrow)
+(package-initialize)
+
+(defun every (p list)
+  "Check predicate for every element in a list. Should probably move this some place else."
+  (let ((value t))
+    (dolist (x list value)
+      (setq value (and (funcall p x) value)))))
+
+(defvar my-packages
+  '(;; Themes
+    color-theme-sanityinc-tomorrow)
+  "A list of packages to ensure are installed at launch.")
+
+(defun all-packages-installed-p ()
+  "Check if all my packages are installed."
+  (every #'package-installed-p my-packages))
+
+(defun require-package (package)
+  "Install package, unless already installed."
+  (unless (memq package my-packages)
+    (add-to-list 'my-packages package))
+  (unless (package-installed-p package)
+    (package-install package)))
+
+(defun require-packages (packages)
+  "Ensure PACKAGES are installed. Missing packages are installed automatically."
+  (mapc #'prelude-require-package packages))
+
+(defun install-packages ()
+  "Install all packages listed in 'my-packages'."
+  (unless (all-packages-installed-p)
+    ;; Refresh package database
+    (message "%s" "Refreshing package database...")
+    (package-refresh-contents)
+    (message "%s" " done.")
+    (require-packages my-packages)))
+
+(install-packages)
 
 
 ;;;;; UI
