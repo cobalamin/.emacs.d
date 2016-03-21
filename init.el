@@ -112,11 +112,12 @@
 ;;; Sort Apropos by relevancy score
 (setq apropos-sort-by-scores t)
 
-;;; Where to save custom settings
+;;; Where to save customize settings
 (setq custom-file "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom.el")
 
 ;;; Sunrise/Sunset
-(setq calendar-latitude 49.4532115)
-(setq calendar-longitude 11.0743073)
-(setq calendar-location-name "Nürnberg, DE")
+(setq
+ calendar-latitude 49.4532115
+ calendar-longitude 11.0743073
+ calendar-location-name "Nürnberg, DE")
