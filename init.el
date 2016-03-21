@@ -19,7 +19,9 @@
   '(;; Themes
     color-theme-sanityinc-tomorrow
     ;; Editing
-    undo-tree)
+    undo-tree
+    ;; Navigation
+    smex)
   "A list of packages to ensure are installed at launch.")
 
 (defun all-packages-installed-p ()
@@ -50,7 +52,7 @@
 
 
 
-;;;;; NAVIGATION/EDITING
+;;;;; NAVIGATION
 
 ;;; Ido mode
 (require 'ido)
@@ -62,13 +64,7 @@
 (setq ido-ignore-files
       (append ido-ignore-files
 	      '()))
-
 (ido-mode 1)
-
-;;; Undo Tree
-(global-undo-tree-mode t)
-(global-set-key (kbd "C-x /") 'undo-tree-visualize)
-(defalias 'redo 'undo-tree-redo)
 
 ;;; Window navigation/management
 ; Use M-o and M-O for quick forward/backward window cycling
@@ -76,6 +72,22 @@
 (global-set-key (kbd "M-O") (kbd "C-- C-x o")) ; don't know how to do `negative-argument`
 ; Use windmove keybindings (S-<left>, S-<right>, S-<up>, S-<down>)
 (windmove-default-keybindings)
+
+;;; Smex
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c M-x") 'execute-extended-command)
+
+
+;;;;; EDITING
+
+;;; Undo Tree
+(global-undo-tree-mode t)
+(global-set-key (kbd "C-x /") 'undo-tree-visualize)
+(defalias 'redo 'undo-tree-redo)
+
 
 
 ;;;;; UI
