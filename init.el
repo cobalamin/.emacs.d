@@ -33,7 +33,7 @@
 
 (defun require-packages (packages)
   "Ensure PACKAGES are installed. Missing packages are installed automatically."
-  (mapc #'prelude-require-package packages))
+  (mapc #'require-package packages))
 
 (defun install-packages ()
   "Install all packages listed in 'my-packages'."
@@ -48,8 +48,18 @@
 
 
 ;;;;; UI
+; Theme
 (load-theme 'sanityinc-tomorrow-eighties t)
 
+; Font settings
+(defun screen-height-to-font-size ()
+  (let ((sh (display-pixel-height)))
+    (cond ((<= sh 1080) 120)
+	  ((<= sh 1440) 150)
+	  (t 170))))
+
+(set-face-attribute 'default nil :height (screen-height-to-font-size))
+(set-face-attribute 'default nil :family "Pragmata Pro")
 
 ;;;;; MISCELLANEOUS
 
