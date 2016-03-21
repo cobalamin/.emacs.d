@@ -1,7 +1,7 @@
 ;;;;; PACKAGES
 (require 'package)
 
-;; Repositories
+;;; Repositories
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
 	("marmalade" . "http://marmalade-repo.org/packages/")
@@ -17,7 +17,9 @@
 
 (defvar my-packages
   '(;; Themes
-    color-theme-sanityinc-tomorrow)
+    color-theme-sanityinc-tomorrow
+    ;; Editing
+    undo-tree)
   "A list of packages to ensure are installed at launch.")
 
 (defun all-packages-installed-p ()
@@ -47,11 +49,41 @@
 (install-packages)
 
 
+
+;;;;; NAVIGATION/EDITING
+
+;;; Ido mode
+(require 'ido)
+; Flex/fuzzy matching
+(setq ido-enable-flex-matching t)
+; Emphasize regularly used file extensions in ido
+(setq ido-file-extensions-order '(".js" ".clj" ".hs" ".py" ".rb" ".erb" ".css" ".html"))
+; Ignore some files (regex), kept for reference for now
+(setq ido-ignore-files
+      (append ido-ignore-files
+	      '()))
+
+(ido-mode 1)
+
+;;; Undo Tree
+(global-undo-tree-mode t)
+(global-set-key (kbd "C-x /") 'undo-tree-visualize)
+(defalias 'redo 'undo-tree-redo)
+
+;;; Window navigation/management
+; Use M-o and M-O for quick forward/backward window cycling
+(global-set-key (kbd "M-o") 'other-window)
+(global-set-key (kbd "M-O") (kbd "C-- C-x o")) ; don't know how to do `negative-argument`
+; Use windmove keybindings (S-<left>, S-<right>, S-<up>, S-<down>)
+(windmove-default-keybindings)
+
+
 ;;;;; UI
-; Theme
+
+;;; Theme
 (load-theme 'sanityinc-tomorrow-eighties t)
 
-; Font settings
+;;; Font settings
 (defun screen-height-to-font-size ()
   (let ((sh (display-pixel-height)))
     (cond ((<= sh 1080) 120)
@@ -61,16 +93,18 @@
 (set-face-attribute 'default nil :height (screen-height-to-font-size))
 (set-face-attribute 'default nil :family "Pragmata Pro")
 
+
+
 ;;;;; MISCELLANEOUS
 
-; Sort Apropos by relevancy score
+;;; Sort Apropos by relevancy score
 (setq apropos-sort-by-scores t)
 
-; Where to save custom settings
+;;; Where to save custom settings
 (setq custom-file "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom.el")
 
-; Sunrise/Sunset
+;;; Sunrise/Sunset
 (setq calendar-latitude 49.4532115)
 (setq calendar-longitude 11.0743073)
 (setq calendar-location-name "Nürnberg, DE")
