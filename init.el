@@ -121,7 +121,7 @@
 ;;; Font settings
 (defun screen-height-to-font-size ()
   (let ((sh (display-pixel-height)))
-    (cond ((<= sh 1080) 120)
+    (cond ((<= sh 1080) 105)
 	  ((<= sh 1440) 150)
 	  (t 170))))
 
@@ -153,6 +153,9 @@
 ;;; Where to save customize settings
 (setq custom-file "~/.emacs.d/custom.el")
 (load "~/.emacs.d/custom.el")
+
+;;; Where to store backup files
+(setq backup-directory-alist `(("." . "~/.bkup-emacs")))
 
 ;;; Sunrise/Sunset
 (setq
