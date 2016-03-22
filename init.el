@@ -129,6 +129,11 @@
 (require 'hl-line)
 (global-hl-line-mode)
 
+;;; Show matching paren
+(require 'paren)
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MISCELLANEOUS
