@@ -11,7 +11,7 @@
 
 (defvar my-packages
   '(;; Themes
-    color-theme-sanityinc-tomorrow
+    base16-theme
     ;; Editing
     undo-tree
     ;; Navigation
@@ -80,6 +80,9 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
 
+;;; Imenu
+(global-set-key (kbd "M-i") 'imenu)
+
 
 
 ;;;;; EDITING
@@ -92,12 +95,15 @@
 ;;; Fix whitespace with C-c C-w
 (global-set-key (kbd "C-c C-w") 'fixup-whitespace)
 
+;;; Immediately show register preview
+(setq register-preview-delay 0)
+
 
 
 ;;;;; UI
 
 ;;; Theme
-(load-theme 'sanityinc-tomorrow-eighties t)
+(load-theme 'base16-eighties-dark t)
 
 ;;; Font settings
 (defun screen-height-to-font-size ()
@@ -108,6 +114,16 @@
 
 (set-face-attribute 'default nil :height (screen-height-to-font-size))
 (set-face-attribute 'default nil :family "Pragmata Pro")
+
+;;; Line Numbers
+(require 'linum)
+(global-linum-mode)
+; Quick toggle if linums annoy
+(global-set-key (kbd "C-c C-l") 'linum-mode)
+
+;;; Highlight Current Line
+(require 'hl-line)
+(global-hl-line-mode)
 
 
 
