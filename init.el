@@ -1,4 +1,4 @@
-;;;;; PACKAGES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; PACKAGES
 (require 'package)
 
 ;;; Repositories
@@ -52,7 +52,7 @@
 
 
 
-;;;;; NAVIGATION
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; NAVIGATION
 
 ;;; Ido mode
 (require 'ido)
@@ -85,7 +85,7 @@
 
 
 
-;;;;; EDITING
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; EDITING
 
 ;;; Undo Tree
 (global-undo-tree-mode t)
@@ -100,7 +100,7 @@
 
 
 
-;;;;; UI
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UI
 
 ;;; Theme
 (load-theme 'base16-eighties-dark t)
@@ -127,7 +127,7 @@
 
 
 
-;;;;; MISCELLANEOUS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MISCELLANEOUS
 
 ;;; Sort Apropos by relevancy score
 (setq apropos-sort-by-scores t)
