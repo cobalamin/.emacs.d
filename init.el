@@ -14,6 +14,7 @@
     base16-theme
     ;; Editing
     undo-tree
+    whole-line-or-region
     ;; Navigation
     smex)
   "A list of packages to ensure are installed at launch.")
@@ -101,6 +102,10 @@
 
 ;;; Immediately show register preview
 (setq register-preview-delay 0)
+
+;;; C-w to kill current line if region is inactive
+(require 'whole-line-or-region)
+(whole-line-or-region-mode)
 
 
 
