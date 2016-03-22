@@ -9,12 +9,6 @@
 
 (package-initialize)
 
-(defun every (p list)
-  "Check predicate for every element in a list. Should probably move this some place else."
-  (let ((value t))
-    (dolist (x list value)
-      (setq value (and (funcall p x) value)))))
-
 (defvar my-packages
   '(;; Themes
     color-theme-sanityinc-tomorrow
@@ -23,6 +17,12 @@
     ;; Navigation
     smex)
   "A list of packages to ensure are installed at launch.")
+
+(defun every (p list)
+  "Check predicate for every element in a list. Should probably move this some place else."
+  (let ((value t))
+    (dolist (x list value)
+      (setq value (and (funcall p x) value)))))
 
 (defun all-packages-installed-p ()
   "Check if all my packages are installed."
