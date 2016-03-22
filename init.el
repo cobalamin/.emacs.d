@@ -75,6 +75,7 @@
 ; Use M-o and M-O for quick forward/backward window cycling
 (global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "M-O") (kbd "C-- C-x o")) ; don't know how to do `negative-argument`
+
 ; Use windmove keybindings (S-<left>, S-<right>, S-<up>, S-<down>)
 (windmove-default-keybindings)
 
@@ -87,6 +88,9 @@
 
 ;;; Imenu
 (global-set-key (kbd "M-i") 'imenu)
+
+;;; Show column number
+(column-number-mode 1)
 
 
 
