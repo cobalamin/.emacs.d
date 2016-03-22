@@ -56,14 +56,18 @@
 
 ;;; Ido mode
 (require 'ido)
-; Flex/fuzzy matching
-(setq ido-enable-flex-matching t)
-; Emphasize regularly used file extensions in ido
-(setq ido-file-extensions-order '(".js" ".clj" ".hs" ".py" ".rb" ".erb" ".css" ".html"))
-; Ignore some files (regex), kept for reference for now
-(setq ido-ignore-files
-      (append ido-ignore-files
-	      '()))
+
+(setq
+ ; Flex/fuzzy matching
+ ido-enable-flex-matching t
+ ; Ido everywhere!
+ ido-everywhere t
+ ; Emphasize regularly used file extensions in ido
+ ido-file-extensions-order '(".js" ".clj" ".hs" ".py" ".rb" ".erb" ".css" ".html")
+ ; Ignore some files (regex), kept for reference for now
+ ido-ignore-files (append ido-ignore-files
+			  '()))
+
 (ido-mode 1)
 
 ;;; Window navigation/management
