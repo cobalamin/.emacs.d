@@ -9,16 +9,6 @@
 
 (package-initialize)
 
-(defvar my-packages
-  '(;; Themes
-    base16-theme
-    ;; Editing
-    undo-tree
-    whole-line-or-region
-    ;; Navigation
-    smex)
-  "A list of packages to ensure are installed at launch.")
-
 (defun every (p list)
   "Check predicate for every element in a list. Should probably move this some place else."
   (let ((value t))
@@ -48,6 +38,17 @@
     (package-refresh-contents)
     (message "%s" " done.")
     (require-packages my-packages)))
+
+(defvar my-packages
+  '(;; Themes
+    base16-theme
+    ;; Editing
+    undo-tree
+    whole-line-or-region
+    paredit
+    ;; Navigation
+    smex)
+  "A list of packages to ensure are installed at launch.")
 
 (install-packages)
 
@@ -110,6 +111,20 @@
 ;;; C-w to kill current line if region is inactive
 (require 'whole-line-or-region)
 (whole-line-or-region-mode)
+
+;;; Paredit
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+
+(defvar paredit-mode-hooks
+  '(emacs-lisp-mode-hook
+    eval-expression-minibuffer-setup-hook
+    ielm-mode-hook
+    lisp-mode-hook
+    lisp-interaction-mode-hook
+    scheme-mode-hook))
+
+(dolist (hook paredit-mode-hooks)
+  (add-hook hook #'enable-paredit-mode))
 
 
 
