@@ -81,12 +81,16 @@
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
 
 
+
 ;;;;; EDITING
 
 ;;; Undo Tree
 (global-undo-tree-mode t)
 (global-set-key (kbd "C-x /") 'undo-tree-visualize)
 (defalias 'redo 'undo-tree-redo)
+
+;;; Fix whitespace with C-c C-w
+(global-set-key (kbd "C-c C-w") 'fixup-whitespace)
 
 
 
