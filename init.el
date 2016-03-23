@@ -47,7 +47,9 @@
     whole-line-or-region
     paredit
     ;; Navigation
-    smex)
+    smooth-scrolling
+    smex
+    )
   "A list of packages to ensure are installed at launch.")
 
 (install-packages)
@@ -90,8 +92,9 @@
 ;;; Imenu
 (global-set-key (kbd "M-i") 'imenu)
 
-;;; Show column number
-(column-number-mode 1)
+
+
+
 
 
 
@@ -126,7 +129,7 @@
     (comment-dwim arg)))
 (global-set-key (kbd "C-;") 'comment-dwim-line)
 
-(setq comment-column 0) ; I don't want a comment column for inline comments
+(setq-default comment-column 0) ; I don't want a comment column for inline comments
 
 ;;; Paredit
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -159,11 +162,14 @@
 (set-face-attribute 'default nil :height (screen-height-to-font-size))
 (set-face-attribute 'default nil :family "Pragmata Pro")
 
-;;; Line Numbers
+;;; Line numbers
 (require 'linum)
 (global-linum-mode)
 ; Quick toggle if linums annoy
 (global-set-key (kbd "C-c C-l") 'linum-mode)
+
+;;; Column numbers
+(column-number-mode 1)
 
 ;;; Highlight Current Line
 (require 'hl-line)
@@ -173,6 +179,10 @@
 (require 'paren)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+;;; Smooth scrolling with C-p/C-n
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
 
 
 
@@ -193,3 +203,6 @@
  calendar-latitude 49.4532115
  calendar-longitude 11.0743073
  calendar-location-name "Nürnberg, DE")
+
+;;; No splash screen
+(setq inhibit-splash-screen t)
