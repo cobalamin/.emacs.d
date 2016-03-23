@@ -46,6 +46,7 @@
     undo-tree
     whole-line-or-region
     paredit
+    emojify
     ;; Navigation
     smooth-scrolling
     smex
@@ -91,10 +92,6 @@
 
 ;;; Imenu
 (global-set-key (kbd "M-i") 'imenu)
-
-
-
-
 
 
 
@@ -144,6 +141,9 @@
 
 (dolist (hook paredit-mode-hooks)
   (add-hook hook #'enable-paredit-mode))
+
+;;; Incredibly important: Emojis
+(global-emojify-mode t)
 
 
 
