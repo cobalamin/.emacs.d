@@ -105,6 +105,9 @@
 ;;; Fix whitespace with C-c C-w
 (global-set-key (kbd "C-c C-w") 'fixup-whitespace)
 
+;;; Keybinding for whitespace-mode toggle
+(global-set-key (kbd "C-c C-x C-w") 'whitespace-mode)
+
 ;;; Immediately show register preview
 (setq register-preview-delay 0)
 
