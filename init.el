@@ -148,6 +148,9 @@
 ;;; Incredibly important: Emojis
 (global-emojify-mode t)
 
+;;; Use hippie-expand instead of dabbrev-expand
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UI
