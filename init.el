@@ -90,8 +90,15 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
 
+;;; Smooth scrolling with C-p/C-n
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+
 ;;; Imenu
 (global-set-key (kbd "M-i") 'imenu)
+
+;;; I don't want no electric-indent
+(electric-indent-mode -1)
 
 
 
@@ -185,10 +192,6 @@
 (require 'paren)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
-
-;;; Smooth scrolling with C-p/C-n
-(require 'smooth-scrolling)
-(smooth-scrolling-mode 1)
 
 
 
