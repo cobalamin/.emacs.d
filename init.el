@@ -201,11 +201,11 @@
 (setq apropos-sort-by-scores t)
 
 ;;; Where to save customize settings
-(setq custom-file "~/.emacs.d/custom.el")
-(load "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file)
 
 ;;; Where to store backup files
-(setq backup-directory-alist `(("." . "~/.bkup-emacs")))
+(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
 
 ;;; Sunrise/Sunset
 (setq
