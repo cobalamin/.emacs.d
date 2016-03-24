@@ -97,7 +97,7 @@
 (smooth-scrolling-mode 1)
 
 ;;; Imenu
-(global-set-key (kbd "M-i") 'imenu)
+(global-set-key (kbd "M-g M-o") 'imenu)
 
 ;;; I don't want no electric-indent
 (electric-indent-mode -1)
