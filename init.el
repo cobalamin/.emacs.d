@@ -42,6 +42,8 @@
 (defvar my-packages
   '(;; Themes
     base16-theme
+    ;; UI
+    rainbow-delimiters
     ;; Editing
     undo-tree
     whole-line-or-region
@@ -54,7 +56,7 @@
   "A list of packages to ensure are installed at launch.")
 
 (install-packages)
-
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; NAVIGATION
@@ -99,7 +101,7 @@
 
 ;;; I don't want no electric-indent
 (electric-indent-mode -1)
-
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; EDITING
@@ -157,7 +159,7 @@
 
 ;;; Use hippie-expand instead of dabbrev-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
-
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UI
@@ -193,6 +195,10 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+;;; Rainbow delimiters
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MISCELLANEOUS
