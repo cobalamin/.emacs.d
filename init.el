@@ -49,6 +49,7 @@
     whole-line-or-region
     paredit
     emojify
+    zop-to-char
     ;; Navigation
     smooth-scrolling
     smex
@@ -159,6 +160,9 @@
 
 ;;; Use hippie-expand instead of dabbrev-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
+
+;;; Use zop-to-char, which excludes the "zopped" char
+(global-set-key [remap zap-to-char] 'zop-to-char)
 
 
 
