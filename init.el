@@ -163,6 +163,19 @@
 
 ;;; Use zop-to-char, which excludes the "zopped" char
 (global-set-key [remap zap-to-char] 'zop-to-char)
+
+;;; Use british dictionary and aspell for spell correction
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "british")
+
+;;; Spell-correct (La)TeX with the proper parser
+(add-hook 'tex-mode-hook
+  #'(lambda ()
+      (setq ispell-parser 'tex)
+      (flyspell-mode)))
+
+(dolist (mh '(html-mode-hook clojure-mode-hook haskell-mode-hook))
+  (add-hook mh 'flyspell-prog-mode))
 
 
 
