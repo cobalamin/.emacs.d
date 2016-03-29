@@ -196,8 +196,8 @@
 
 ;;; Line numbers
 (require 'linum)
-(global-linum-mode)
-; Quick toggle if linums annoy
+(add-hook 'prog-mode-hook 'linum-on)
+; Quick toggle
 (global-set-key (kbd "C-c C-l") 'linum-mode)
 
 ;;; Column numbers
