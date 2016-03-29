@@ -111,6 +111,9 @@
     (find-alternate-file
      (concat "/sudo:root@localhost:"
 	     buffer-file-name))))
+
+;; Moar dired
+(require 'dired-x)
 
 
 
