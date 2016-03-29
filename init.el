@@ -102,6 +102,15 @@
 
 ;;; I don't want no electric-indent
 (electric-indent-mode -1)
+
+;;; Edit the current file as root
+(defun sudo ()
+  "Use TRAMP to `sudo' the current buffer"
+  (interactive)
+  (when buffer-file-name
+    (find-alternate-file
+     (concat "/sudo:root@localhost:"
+	     buffer-file-name))))
 
 
 
