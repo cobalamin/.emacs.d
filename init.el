@@ -227,6 +227,10 @@
 ;;; Rainbow delimiters
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;; Hide menu bar and toolbar
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 
 
