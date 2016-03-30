@@ -42,6 +42,8 @@
 (defvar my-packages
   '(;; Themes
     base16-theme
+    zenburn-theme
+    solarized-theme
     ;; UI
     rainbow-delimiters
     ;; Editing
@@ -194,7 +196,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; UI
 
 ;;; Theme
-(load-theme 'base16-eighties-dark t)
+(load-theme 'solarized-dark t)
 
 ;;; Font settings
 (defun screen-height-to-font-size ()
