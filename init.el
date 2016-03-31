@@ -46,6 +46,7 @@
     solarized-theme
     ;; UI
     rainbow-delimiters
+    dired-details+
     ;; Editing
     undo-tree
     whole-line-or-region
@@ -55,7 +56,7 @@
     ;; Navigation
     smooth-scrolling
     smex
-    )
+    neotree)
   "A list of packages to ensure are installed at launch.")
 
 (install-packages)
@@ -116,6 +117,10 @@
 
 ;; Moar dired
 (require 'dired-x)
+
+;; Neotree for directory tree navigation
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 
 
@@ -230,9 +235,13 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-;;; Hide menu bar and toolbar
+;;; Hide menu bar, toolbar, and scroll bars
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; Propagate dired-details
+(setq dired-details-propagate-flag t)
 
 
 
