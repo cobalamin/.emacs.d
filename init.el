@@ -23,6 +23,7 @@
 ;; Loading all modules
 
 (load-user-file "packages.el")
+(load-user-file "funs.el")
 
 (load-user-file "editing.el")
 (load-user-file "navigation.el")

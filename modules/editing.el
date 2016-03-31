@@ -48,6 +48,9 @@
 
 ;;; Incredibly important: Emojis
 (global-emojify-mode t)
+(setq
+ emojify-emoji-styles '(unicode)
+ emojify-program-contexts '(comments string))
 
 ;;; Use hippie-expand instead of dabbrev-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
