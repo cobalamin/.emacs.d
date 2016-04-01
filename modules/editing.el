@@ -68,5 +68,6 @@
       (setq ispell-parser 'tex)
       (flyspell-mode)))
 
+;;; Flyspell for HTML, Clojure, Haskell
 (dolist (mh '(html-mode-hook clojure-mode-hook haskell-mode-hook))
   (add-hook mh 'flyspell-prog-mode))
