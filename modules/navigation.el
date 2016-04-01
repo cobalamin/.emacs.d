@@ -54,3 +54,7 @@
 ;; Neotree for directory tree navigation
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+;; Save configuration
+(setq desktop-path `(,(concat user-emacs-directory "saved-desktops")))
+(desktop-save-mode t)
