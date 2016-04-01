@@ -21,7 +21,6 @@
 	 " && git pull"))
 
 ;; Loading all modules
-
 (load-user-file "packages.el")
 (load-user-file "funs.el")
 
@@ -30,5 +29,9 @@
 (load-user-file "ui.el")
 (load-user-file "misc.el")
 
+;; Language specific config
 (load-user-file "_haskell.el")
+
 (load-user-file "_html.el")
+(load-user-file "_js.el")
+(load-user-file "_scss.el")
