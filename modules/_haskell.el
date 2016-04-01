@@ -5,13 +5,14 @@
 (setq my-packages
       (append my-packages
 	      '(;; Modes
-		haskell-mode ; The major mode
+		haskell-mode
 		shm ; structured-haskell-mode
-		hindent-mode
-		)))
+		hindent)))
 
 (install-packages)
 
+;; Require haskell-mode
+(require 'haskell-mode)
 
 ;; Use hindent minor mode for indenting with M-q
 (add-hook 'haskell-mode-hook #'hindent-mode)
