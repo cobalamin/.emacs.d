@@ -2,14 +2,9 @@
 ; stylish-haskell
 
 ;; Install necessary packages
-(setq my-packages
-      (append my-packages
-	      '(;; Modes
-		haskell-mode
-		shm ; structured-haskell-mode
-		hindent)))
-
-(install-packages)
+(require-package 'haskell-mode)
+(require-package 'shm) ; structured-haskell-mode
+(require-package 'hindent)
 
 ;; Require haskell-mode
 (require 'haskell-mode)
