@@ -29,3 +29,6 @@
 (load-user-file "navigation.el")
 (load-user-file "ui.el")
 (load-user-file "misc.el")
+
+(load-user-file "_haskell.el")
+(load-user-file "_html.el")
