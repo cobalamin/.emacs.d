@@ -13,7 +13,11 @@
 
 ;;; Line numbers
 (require 'linum)
-(add-hook 'prog-mode-hook 'linum-on)
+(global-linum-mode t)
+; But not in doc-view-mode...
+(add-hook 'doc-view-mode-hook
+  (lambda ()
+    (linum-mode -1)))
 ; Quick toggle
 (global-set-key (kbd "C-c C-l") 'linum-mode)
 
