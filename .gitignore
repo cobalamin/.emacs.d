@@ -2,7 +2,6 @@
 /auto-save-list/
 /elpa/
 /url/
-/bookmarks/
 /emojis/
 /backups/
 /eshell/
@@ -12,3 +11,4 @@ ido.last
 .#*
 /tramp
 /smex-items
+/bookmarks
