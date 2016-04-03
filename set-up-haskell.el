@@ -13,10 +13,14 @@
 	   "happy"
 	   "hasktags"
 	   "hoogle"
-	   "ghc-mod"))
+	   "ghc-mod"
+	   "hlint"))
   (if (eq 127 (call-process-shell-command pkg))
     (if (eq 0 (call-process-shell-command (concat "cabal install " pkg)))
 	(message (concat "Installed cabal package " pkg))
 	(message (concat "Error installing cabal package " pkg)))))
 (message "Done.")
 
+(message "Generating initial hoogle data...")
+(shell-command "hoogle data")
+(message "Done.")
