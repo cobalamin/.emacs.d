@@ -16,3 +16,7 @@
 
 ;;; No splash screen
 (setq inhibit-splash-screen t)
+
+;;; Add /usr/local/bin to execution path
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
