@@ -35,3 +35,5 @@
 (load-user-file "_html.el")
 (load-user-file "_js.el")
 (load-user-file "_scss.el")
+
+(load-user-file "_clojure.el")
