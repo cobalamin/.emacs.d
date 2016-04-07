@@ -13,3 +13,4 @@ ido.last
 /tramp
 /smex-items
 /bookmarks
+/modules/__overrides__.el

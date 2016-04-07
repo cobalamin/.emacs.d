@@ -37,3 +37,6 @@
 (load-user-file "_scss.el")
 
 (load-user-file "_clojure.el")
+
+;; Per-system overrides (file in .gitignore)
+(load-user-file "__overrides__.el")
