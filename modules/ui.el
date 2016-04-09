@@ -1,16 +1,3 @@
-;;; Theme
-(load-theme 'solarized-dark t)
-
-;;; Font settings
-(defun screen-height-to-font-size ()
-  (let ((sh (display-pixel-height)))
-    (cond ((<= sh 1080) 105)
-	  ((<= sh 1440) 150)
-	  (t 170))))
-
-(set-face-attribute 'default nil :height (screen-height-to-font-size))
-(set-face-attribute 'default nil :family "Pragmata Pro")
-
 ;;; Line numbers
 (require 'linum)
 (global-linum-mode t)
