@@ -48,13 +48,21 @@
      (concat "/sudo:root@localhost:"
 	     buffer-file-name))))
 
-;; Moar dired
+;;; Moar dired
 (require 'dired-x)
 
-;; Neotree for directory tree navigation
+;;; Neotree for directory tree navigation
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
-;; Save configuration
+;;; Save configuration
 (setq desktop-path `(,(concat user-emacs-directory "saved-desktops")))
 (desktop-save-mode t)
+
+;;; Show full file name in minibuffer
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
+(global-set-key [C-f1] 'show-file-name)
