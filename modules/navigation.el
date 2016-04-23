@@ -48,13 +48,16 @@
      (concat "/sudo:root@localhost:"
 	     buffer-file-name))))
 
-;; Moar dired
+;;; Moar dired
 (require 'dired-x)
 
-;; Neotree for directory tree navigation
+;;; Neotree for directory tree navigation
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
-;; Save configuration
+;;; Save configuration
 (setq desktop-path `(,(concat user-emacs-directory "saved-desktops")))
 (desktop-save-mode t)
+
+;;; Set C-c C-x C-q as general shortcut if q is not bound to quit-window
+(global-set-key (kbd "C-c C-x C-q") 'quit-window)
