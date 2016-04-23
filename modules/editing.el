@@ -71,3 +71,9 @@
 ;;; Flyspell for HTML, Clojure, Haskell
 (dolist (mh '(html-mode-hook clojure-mode-hook haskell-mode-hook))
   (add-hook mh 'flyspell-prog-mode))
+
+;;; Command to clear buffer and ignore readonly text properties
+(defun force-erase-buffer ()
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
