@@ -21,7 +21,12 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;;; Get environment vars
+(require-package 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
 ;;; Set language in environment, to not get encoding errors (especially from python in a shell process)
 (setenv "LANG" "en_US.UTF-8")
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
+

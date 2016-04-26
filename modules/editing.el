@@ -55,6 +55,9 @@
 ;;; Use hippie-expand instead of dabbrev-expand
 (global-set-key [remap dabbrev-expand] 'hippie-expand)
 
+;;; Use C-tab for company-complete
+(global-set-key (kbd "C-<tab>") 'company-complete)
+
 ;;; Use zop-to-char, which excludes the "zopped" char
 (global-set-key [remap zap-to-char] 'zop-to-char)
 
@@ -62,15 +65,13 @@
 (setq ispell-program-name "aspell")
 (setq ispell-dictionary "british")
 
-;;; Spell-correct (La)TeX with the proper parser
-(add-hook 'tex-mode-hook
-  #'(lambda ()
-      (setq ispell-parser 'tex)
-      (flyspell-mode)))
+;;; Flycheck
+(require-package 'flycheck)
+; enabling it is up to each mode config file
 
-;;; Flyspell for HTML, Clojure, Haskell
-(dolist (mh '(html-mode-hook clojure-mode-hook haskell-mode-hook))
-  (add-hook mh 'flyspell-prog-mode))
+;;; Company
+(require-package 'company)
+(require 'company)
 
 ;;; Command to clear buffer and ignore readonly text properties
 (defun force-erase-buffer ()
