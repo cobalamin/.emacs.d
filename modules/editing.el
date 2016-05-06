@@ -67,6 +67,8 @@
 
 ;;; Flycheck
 (require-package 'flycheck)
+; don't show errors at point, use mouse hover functionality instead
+(setq flycheck-display-errors-function nil)
 ; enabling it is up to each mode config file
 
 ;;; Company
