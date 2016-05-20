@@ -35,7 +35,7 @@
 (add-to-list 'company-backends 'company-ghc)
 
 (add-hook 'haskell-mode-hook #'company-mode)
-(add-hook 'haskell-interactive-mode-hook #'company-mode)
+;(add-hook 'haskell-interactive-mode-hook #'company-mode)
 
 ;;; Some sensible keybindings
 
@@ -47,6 +47,8 @@
  haskell-mode-map)
 
 (my-bind-keys
- '(((kbd "C-<tab>") . company-complete))
+ '(((kbd "C-<tab>") . company-complete)
+   ((kbd "<up>") . haskell-interactive-mode-history-previous)
+   ((kbd "<down>") . haskell-interactive-mode-history-next))
  'haskell-interactive-mode
  haskell-interactive-mode-map)
