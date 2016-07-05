@@ -38,5 +38,7 @@
 
 (load-user-file "_clojure.el")
 
+(load-user-file "_elm.el")
+
 ;; Per-system overrides (file in .gitignore)
 (load-user-file "__overrides__.el")
