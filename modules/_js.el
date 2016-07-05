@@ -3,4 +3,5 @@
   (lambda ()
     ; Use tabs for indendation
     (setq indent-tabs-mode t
-	  tab-width 4)))
+	  tab-width 2
+	  js-indent-level 2)))
