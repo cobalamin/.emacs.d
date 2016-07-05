@@ -6,7 +6,11 @@
 (load custom-file)
 
 ;;; Where to store backup files
-(setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+(defvar backup-dir (concat user-emacs-directory "backups"))
+(setq backup-directory-alist (list (cons "." backup-dir)))
+
+;;; Don't create .# lock files
+(setq create-lockfiles nil)
 
 ;;; Sunrise/Sunset
 (setq
