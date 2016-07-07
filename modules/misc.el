@@ -34,3 +34,5 @@
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
 
+;;; Automatically reload TAGS files
+(setq tags-revert-without-query 1)
