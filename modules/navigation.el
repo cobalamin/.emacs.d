@@ -69,3 +69,12 @@
   (message (buffer-file-name)))
 
 (global-set-key [C-f1] 'show-file-name)
+
+;;; Buffer-move to swap/move buffers around
+(require-package 'buffer-move)
+(require 'buffer-move)
+(global-set-key (kbd "<C-S-up>") 'buf-move-up)
+(global-set-key (kbd "<C-S-down>") 'buf-move-down)
+(global-set-key (kbd "<C-S-left>") 'buf-move-left)
+(global-set-key (kbd "<C-S-right>") 'buf-move-right)
+
