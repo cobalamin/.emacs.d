@@ -8,8 +8,7 @@
 
 ;;; Some sensible settings
 (setq
- ; Let GHC suggest to remove import lines that generate warnings
- haskell-process-suggest-remove-import-lines t
+ haskell-process-suggest-remove-import-lines nil
  ; Auto import the modules reported by GHC to have been loaded
  haskell-process-auto-import-loaded-modules t
  ; Debug logging to "*haskell-process-log*" buffer
