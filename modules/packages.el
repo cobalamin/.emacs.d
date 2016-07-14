@@ -55,7 +55,10 @@
     ;; Navigation
     smooth-scrolling
     smex
-    neotree)
+    neotree
+
+    ;; Useful libs for Elisp
+    s)
   "A list of packages to ensure are installed at launch.")
 
 (install-packages)

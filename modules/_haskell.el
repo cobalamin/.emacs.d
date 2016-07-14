@@ -41,6 +41,7 @@
 
 (my-bind-keys
  '(((kbd "C-c C-l") . haskell-process-load-file)
+   ((kbd "C-c C-x C-l") . haskell-process-load-hsc-file)
    ((kbd "C-c C-z") . haskell-interactive-switch)
    ((kbd "C-<tab>") . company-complete))
  'haskell-mode
@@ -52,3 +53,22 @@
    ((kbd "<down>") . haskell-interactive-mode-history-next))
  'haskell-interactive-mode
  haskell-interactive-mode-map)
+
+;;; HSC support
+(require 's)
+(defun haskell-process-load-hsc-file ()
+  (interactive)
+  (save-buffer)
+  (let ((file-name (buffer-file-name)))
+    (if (s-suffix? ".hsc" file-name)
+	(let* ((out-buffer "*hsc2hs*")
+	       (errcode (call-process "hsc2hs" nil out-buffer nil "-v" file-name)))
+	  (if (= errcode 0)
+	      (let* ((hs-name (substring (buffer-file-name) 0 -1))
+		     (hs-buffer (find-file-noselect hs-name t)))
+		(with-current-buffer hs-buffer
+		  (haskell-process-load-file)))
+	    (progn
+	      (message "Error running hsc2hs (%s)" errcode)
+	      (switch-to-buffer out-buffer))))
+      (message "Can't load a non .hsc file with this command."))))
