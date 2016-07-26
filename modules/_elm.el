@@ -3,7 +3,7 @@
 (require 'elm-mode)
 
 ;; Indentation
-(setq elm-indent-offset 2)
+(setq elm-indent-offset 4)
 
 ;; Auto-completion
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
