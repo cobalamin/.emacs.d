@@ -16,3 +16,4 @@ ido.last
 /modules/__overrides__.el
 custom.el
 
+session.*
