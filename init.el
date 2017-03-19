@@ -47,13 +47,13 @@
 (load-user-file-required "misc.el")
 
 ;; Language specific config
-;(load-user-file "_haskell.el")
+(load-user-file-required "_haskell.el")
 
 (load-user-file-required "_html.el")
 (load-user-file-required "_js.el")
 (load-user-file-required "_scss.el")
 
-;(load-user-file "_clojure.el")
+;(load-user-file-required "_clojure.el")
 
 (load-user-file-required "_elm.el")
 
