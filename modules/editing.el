@@ -52,9 +52,6 @@
  emojify-emoji-styles '(unicode)
  emojify-program-contexts '(comments string))
 
-;;; Use hippie-expand instead of dabbrev-expand
-;(global-set-key [remap dabbrev-expand] 'hippie-expand)
-
 ;;; Use C-tab for company-complete
 (global-set-key (kbd "C-<tab>") 'company-complete)
 
@@ -83,3 +80,17 @@
   (interactive)
   (let ((inhibit-read-only t))
     (erase-buffer)))
+
+;;; Smarter C-a behaviour
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+
+Move point to the first non-whitespace character on this line.
+If point was already at that position, move point to beginning of line."
+  (interactive)
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+(global-set-key [home] 'smart-beginning-of-line)
+(global-set-key "\C-a" 'smart-beginning-of-line)

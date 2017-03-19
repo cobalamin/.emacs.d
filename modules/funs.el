@@ -7,15 +7,3 @@
 	   mode-map
 	   (eval (car binding))
 	   (cdr binding))))))
-
-(defun escape-cabal-hell ()
-  "Try to escape cabal hell with the bulldozer method: Just rm -rf ALL THE FILES"
-  (interactive)
-  (message "Escaping...")
-  (dolist (cmd
-	   '("rm -rf `find ~/.ghc -maxdepth 1 -type d`"
-	     "rm -rf ~/.cabal/lib"
-	     "rm -rf ~/.cabal/packages"
-	     "rm -rf ~/.cabal/share"))
-    (shell-command cmd))
-  (message "(Possibly) escaped from cabal hell."))

@@ -14,6 +14,7 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 ;(add-hook 'css-mode-hook 'emmet-mode)
 
+;; Map emmet-expand-line to C-<tab>, not C-j
 (eval-after-load "emmet-mode"
   '(progn
      (define-key emmet-mode-keymap (kbd "C-j") nil)

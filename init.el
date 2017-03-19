@@ -1,8 +1,4 @@
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; Initialise packages
 (package-initialize)
 
 (defconst user-init-dir
@@ -14,38 +10,52 @@
 
 (defconst config-modules-subdir "modules")
 
-(defun load-user-file (file)
+(defun load-user-file-required (file)
   (interactive "f")
-  "Load a file in current user's configuration directory"
+  "Load a file in current user's configuration directory. Fails with an error if the file does not exist."
   (load-file
-   (expand-file-name file
-		     (concat user-init-dir config-modules-subdir))))
+   (expand-file-name
+    file
+    (concat user-init-dir config-modules-subdir))))
+
+(defun load-user-file-if-exists (file)
+  (interactive "f")
+  "Load a file in current user's configuration directory, if it exists. Otherwise, do nothing."
+  (let ((fname
+	 (expand-file-name
+	  file
+	  (concat user-init-dir config-modules-subdir)))
+	)
+    (if (file-exists-p fname)
+	(load-file fname))))
 
 ;; Pulling newest config from GitHub
-(call-process-shell-command
- (concat "cd "
-	 user-init-dir
-	 " && git pull"))
+(defun pull-emacs-d ()
+  (interactive)
+  (call-process-shell-command
+   (concat "cd "
+	   user-init-dir
+	   " && git pull")))
 
 ;; Loading all modules
-(load-user-file "packages.el")
-(load-user-file "funs.el")
+(load-user-file-required "packages.el")
+(load-user-file-required "funs.el")
 
-(load-user-file "editing.el")
-(load-user-file "navigation.el")
-(load-user-file "ui.el")
-(load-user-file "misc.el")
+(load-user-file-required "editing.el")
+(load-user-file-required "navigation.el")
+(load-user-file-required "ui.el")
+(load-user-file-required "misc.el")
 
 ;; Language specific config
-(load-user-file "_haskell.el")
+;(load-user-file "_haskell.el")
 
-(load-user-file "_html.el")
-(load-user-file "_js.el")
-(load-user-file "_scss.el")
+(load-user-file-required "_html.el")
+(load-user-file-required "_js.el")
+(load-user-file-required "_scss.el")
 
-(load-user-file "_clojure.el")
+;(load-user-file "_clojure.el")
 
-(load-user-file "_elm.el")
+(load-user-file-required "_elm.el")
 
 ;; Per-system overrides (file in .gitignore)
-(load-user-file "__overrides__.el")
+(load-user-file-if-exists "__overrides__.el")
